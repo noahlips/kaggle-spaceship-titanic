@@ -75,7 +75,7 @@ def main() -> None:
         if scores.mean() > best_score:
             best_name, best_score = name, scores.mean()
 
-    print(f"\nBest model: {best_name} ({best_score:.4f}) — fitting on full data")
+    print(f"\nBest model: {best_name} ({best_score:.4f}), fitting on full data")
     best = models[best_name].fit(X, y)
 
     SUBMISSIONS_DIR.mkdir(exist_ok=True)

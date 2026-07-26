@@ -20,7 +20,7 @@ def engineer(df: pd.DataFrame) -> pd.DataFrame:
     out["CabinNum"] = pd.to_numeric(cabin[1], errors="coerce")
     out["Side"] = cabin[2]
 
-    # Spending: passengers in cryosleep spend nothing — exploit both directions
+    # Spending: passengers in cryosleep spend nothing, exploit both directions
     out["TotalSpend"] = out[SPENDING_COLS].sum(axis=1)
     out["NoSpend"] = (out["TotalSpend"] == 0).astype(int)
     out.loc[out["CryoSleep"] == True, SPENDING_COLS] = 0  # noqa: E712
